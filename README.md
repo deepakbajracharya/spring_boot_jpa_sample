@@ -5,7 +5,7 @@
 * Can be tested using __curl__.
 
 # Building the application
-Make sure that __mvn__ and __java__ is accessible from the command line.
+Make sure that __mvn__ and __java__ is accessible from the command line. Maven command __mvn__ must be executed from the top level directory which contains __pom.xml__ file.
 
 * Clean and compile
 ```
@@ -104,3 +104,19 @@ User (as Receier) -- Many-to-One --> MessageReceived <-- Many-to-One -- MessageS
 
 A message sent can be received by many users. A user can also  receive many messages (MessageSent). This relationship is represented  by MassageReceived which translates into a bridge table in the database.
 
+# Package the final application
+
+Run the following command to create the executable jar file.
+
+```
+mvn package
+```
+
+The above command create a jar file at target directory. The filename is restapp-0.0.1-SNAPSHOT.jar based on the include pom.xml file.
+
+# Run the application from the jar file
+```
+java -jar target/restapp-0.0.1-SNAPSHOT.jar
+```
+
+** The current application is configured to create the database table in H2 at the startup time. **
